@@ -1,0 +1,1 @@
+{"type":"module","scripts":{"build":"node scripts/build.mjs","test":"node tests/designEngine.test.mjs","dev":"node scripts/dev.mjs"},"dependencies":{},"devDependencies":{}}

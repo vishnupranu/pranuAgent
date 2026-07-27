@@ -1,0 +1,1 @@
+{"manifest_version":3,"name":"PRANU.AGENT Design Inspector","version":"0.1.0","description":"Analyze webpages, extract tokens, audit accessibility, and generate redesign prompts.","permissions":["activeTab","scripting"],"action":{"default_title":"PRANU.AGENT"},"background":{"service_worker":"service-worker.js"}}
