@@ -4,7 +4,9 @@
     "build": "node scripts/build.mjs",
     "test": "node tests/designEngine.test.mjs",
     "dev": "node scripts/dev.mjs",
-    "smoke": "node scripts/smoke.mjs"
+    "smoke": "node scripts/smoke.mjs",
+    "deploy:vercel": "node scripts/deploy-vercel.mjs",
+    "deploy:summary": "node scripts/deployment-summary.mjs"
   },
   "dependencies": {},
   "devDependencies": {}
