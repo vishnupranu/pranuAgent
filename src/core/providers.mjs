@@ -1,0 +1,4 @@
+export const providers = [
+  ['openai','OpenAI',['reasoning','vision','code','design'],()=>true], ['anthropic','Anthropic Claude',['research','writing','analysis'],(t)=>/research|writing|strategy/i.test(t)], ['gemini','Google Gemini',['multimodal','long-context'],(t)=>/image|video|long/i.test(t)], ['mistral','Mistral',['fast ideation','localizable'],(t)=>/quick|draft/i.test(t)], ['grok','Grok',['current-context','social'],(t)=>/trend|social/i.test(t)], ['deepseek','DeepSeek',['code','math'],(t)=>/code|engineering|math/i.test(t)], ['openrouter','OpenRouter',['model marketplace'],(t)=>/compare|fallback/i.test(t)], ['ollama','Ollama',['offline','local'],(t)=>/offline|private|local/i.test(t)], ['local','Local LLM',['private workflows'],(t)=>/private|regulated/i.test(t)]
+].map(([id,label,supports,route])=>({id,label,supports,route}));
+export function routeProvider(task) { return providers.find((p) => p.route(task)) ?? providers[0]; }
