@@ -1,0 +1,14 @@
+export const catalog = {
+  'ux-research':['UX Research Agent','personas','task analysis','insight synthesis'], 'ui-design':['UI Designer Agent','layouts','interaction patterns','responsive states'], 'visual-design':['Visual Designer Agent','hierarchy','composition','delight'], brand:['Brand Designer Agent','voice','identity','moodboards'], 'design-system':['Design System Agent','tokens','components','documentation'], accessibility:['Accessibility Agent','WCAG','inclusive flows','assistive tech'], motion:['Motion Designer Agent','micro-interactions','timing','purposeful animation'], 'information-architecture':['Information Architect','navigation','taxonomy','content structure'], frontend:['Frontend Engineer','React','CSS','handoff'], backend:['Backend Engineer','APIs','storage','security'], flutter:['Flutter Engineer','cross-platform mobile','widgets','themes'], swift:['Swift Engineer','SwiftUI','iOS patterns','accessibility'], android:['Android Engineer','Jetpack Compose','Material','adaptive UI'], cad:['CAD Engineer','floor plans','mechanical concepts','DXF/SVG export'], mechanical:['Mechanical Engineer','assemblies','constraints','manufacturing notes'], civil:['Civil Engineer','site plans','systems','regulatory prompts'], electrical:['Electrical Engineer','schematics','loads','safety notes'], architecture:['Architectural Designer','spatial planning','circulation','programming'], product:['Product Manager','strategy','roadmaps','prioritization'], business:['Business Analyst','requirements','market framing','KPIs'], seo:['SEO Expert','metadata','content structure','discoverability'], marketing:['Marketing Expert','positioning','campaigns','funnels'], content:['Content Designer','microcopy','tone','clarity'], learning:['Learning Coach','teaching mode','rubrics','guided practice'], qa:['QA Agent','test plans','edge cases','acceptance criteria'], workflow:['Workflow Agent','MCP','automation','CI/CD'], documentation:['Documentation Agent','handoff docs','specs','release notes']
+};
+const agent = (role) => ({ role, label: catalog[role][0], strengths: catalog[role].slice(1) });
+export const allAgents = Object.keys(catalog).map(agent);
+export function composeTeam(intent) {
+  const roles = ['product','ux-research','information-architecture','ui-design','visual-design','design-system','accessibility','content','qa','documentation'];
+  if (['prototype','handoff'].includes(intent.fidelity)) roles.push('motion','frontend','workflow');
+  if (intent.platform === 'ios') roles.push('swift','flutter');
+  if (intent.platform === 'android') roles.push('android','flutter');
+  if (intent.platform === 'cad' || /cad|floor|mechanical|assembly|civil|electrical|architecture/i.test(intent.prompt)) roles.push('cad','mechanical','civil','electrical','architecture');
+  if (/marketing|landing|seo|growth/i.test(intent.prompt)) roles.push('marketing','seo','business');
+  return [...new Set(roles)].map(agent);
+}

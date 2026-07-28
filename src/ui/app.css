@@ -1,0 +1,30 @@
+.shell {
+  min-height: 100vh;
+  padding: 48px;
+  background:
+    radial-gradient(circle at top left, rgba(139, 92, 246, .34), transparent 34rem),
+    radial-gradient(circle at 85% 20%, rgba(20, 184, 166, .20), transparent 28rem),
+    #070a12;
+}
+.hero, .grid { max-width: 1180px; margin-inline: auto; }
+.eyebrow { display: inline-flex; gap: 8px; align-items: center; color: #a7f3d0; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+.hero h1 { max-width: 1100px; margin: 20px 0; font-size: clamp(2.4rem, 6vw, 5.8rem); line-height: .95; letter-spacing: -.07em; }
+.hero-copy { max-width: 780px; color: #cbd5e1; font-size: 1.14rem; line-height: 1.7; }
+.composer { display: grid; grid-template-columns: 1fr auto; gap: 12px; margin-top: 28px; padding: 12px; border: 1px solid rgba(255,255,255,.16); border-radius: 26px; background: rgba(255,255,255,.08); box-shadow: 0 24px 80px rgba(0,0,0,.24); }
+.composer textarea { min-height: 120px; resize: vertical; border: 0; border-radius: 18px; padding: 18px; color: #fff; background: #0f172a; line-height: 1.55; }
+.composer button { border: 0; border-radius: 18px; padding-inline: 24px; color: #07111f; background: linear-gradient(135deg, #a7f3d0, #93c5fd); font-weight: 900; }
+.grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 18px; margin-top: 26px; }
+.panel { border: 1px solid rgba(255,255,255,.14); border-radius: 28px; padding: 24px; background: rgba(15,23,42,.78); box-shadow: 0 18px 70px rgba(0,0,0,.28); backdrop-filter: blur(16px); }
+.wide { grid-column: 1 / -1; }
+.panel h2 { display: flex; gap: 10px; align-items: center; margin: 0 0 16px; }
+.chips, .artifacts, .surface-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 12px; }
+.chips span, .artifacts section, .surface-card { padding: 14px; border: 1px solid rgba(255,255,255,.1); border-radius: 18px; background: rgba(255,255,255,.08); }
+.token-list { padding: 0; margin: 0; list-style: none; }
+.token-list li { display: flex; justify-content: space-between; gap: 16px; margin: 10px 0; }
+code { color: #a7f3d0; }
+strong { color: #fff; text-align: right; }
+.artifacts h3 { margin: .2rem 0; }
+.artifacts p, .surface-card p { color: #cbd5e1; line-height: 1.6; }
+.artifacts small { color: #93c5fd; }
+.export { background: linear-gradient(135deg, rgba(139,92,246,.35), rgba(37,99,235,.25)); }
+@media (max-width: 780px) { .shell { padding: 20px; } .composer, .grid { grid-template-columns: 1fr; } .composer button { min-height: 54px; } }
